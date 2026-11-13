@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Old vs New Tax Regime Calculator FY 2026-27 (AY 2027-28)</title>
+<meta name="description" content="Free income tax calculator for India. Compare old and new tax regime for FY 2026-27 (AY 2027-28) with HRA, 80C, 80D, NPS and home loan interest, and see which saves you more.">
+<link rel="canonical" href="https://YOUR-USERNAME.github.io/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is income up to 12 lakh tax free in the new regime for FY 2026-27?","acceptedAnswer":{"@type":"Answer","text":"For resident individuals, taxable income up to 12 lakh rupees pays no tax under the new regime because of the Section 87A rebate of up to 60,000 rupees. Salaried people get a 75,000 rupee standard deduction, so gross salary up to 12.75 lakh rupees can be tax free."}},
+{"@type":"Question","name":"What are the new regime tax slabs for FY 2026-27?","acceptedAnswer":{"@type":"Answer","text":"Nil up to 4 lakh, 5% from 4 to 8 lakh, 10% from 8 to 12 lakh, 15% from 12 to 16 lakh, 20% from 16 to 20 lakh, 25% from 20 to 24 lakh and 30% above 24 lakh, plus 4% cess."}},
+{"@type":"Question","name":"Which regime is better, old or new?","acceptedAnswer":{"@type":"Answer","text":"It depends on your deductions. The old regime can win if you claim large deductions such as HRA, 80C, 80D, NPS and home loan interest. Enter your numbers in the calculator to compare both."}}
+]}
+</script>
+<style>
+:root{
+  --bg:#f6f7f9; --card:#ffffff; --text:#1c2330; --muted:#5d6878; --line:#e2e6ec;
+  --brand:#0b6b57; --brand-soft:#e3f3ee; --warn:#8a5a00; --warn-bg:#fff6e0; --win:#0b6b57;
+}
+@media (prefers-color-scheme: dark){
+  :root{--bg:#10151c; --card:#18202a; --text:#e8edf3; --muted:#9aa6b6; --line:#2a3441;
+    --brand:#3fc3a2; --brand-soft:#12312a; --warn:#f0c060; --warn-bg:#2b2410; --win:#3fc3a2;}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px 48px}
+header{padding:28px 0 8px}
+h1{font-size:1.6rem;line-height:1.25;margin:0 0 6px}
+header p{margin:0;color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:16px}
+@media (min-width:880px){.grid{grid-template-columns:1.05fr .95fr;align-items:start}.sticky{position:sticky;top:16px}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.card h2{font-size:1.05rem;margin:0 0 12px}
+.row{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:12px}
+@media (min-width:520px){.row.two{grid-template-columns:1fr 1fr}}
+label{display:block;font-size:.88rem;color:var(--muted);margin-bottom:4px}
+input[type=text],select{width:100%;padding:10px 12px;font:inherit;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:8px}
+input:focus,select:focus{outline:2px solid var(--brand);outline-offset:1px}
+.check{display:flex;gap:8px;align-items:center;font-size:.95rem;color:var(--text);margin:4px 0 12px}
+.check input{width:18px;height:18px}
+.hint{font-size:.8rem;color:var(--muted);margin-top:3px}
+.verdict{background:var(--brand-soft);border-radius:10px;padding:14px;margin-bottom:14px}
+.verdict strong{color:var(--win)}
+.verdict .big{font-size:1.15rem;font-weight:650}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.reg{border:1px solid var(--line);border-radius:10px;padding:12px}
+.reg.win{border-color:var(--brand);box-shadow:0 0 0 1px var(--brand) inset}
+.reg .name{font-size:.85rem;color:var(--muted)}
+.reg .amt{font-size:1.35rem;font-weight:700}
+.reg .sub{font-size:.8rem;color:var(--muted)}
+.tag{display:inline-block;font-size:.7rem;background:var(--brand);color:#fff;border-radius:99px;padding:1px 8px;margin-left:6px;vertical-align:middle}
+table{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:14px}
+th,td{padding:6px 4px;border-bottom:1px solid var(--line);text-align:right}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--muted);font-weight:600}
+tr.total td{font-weight:700;border-bottom:none}
+.note{background:var(--warn-bg);color:var(--warn);border-radius:10px;padding:12px;font-size:.85rem;margin-top:14px}
+.adslot{min-height:0}
+details{border-top:1px solid var(--line);padding:10px 0}
+details:first-of-type{border-top:none}
+summary{cursor:pointer;font-weight:600}
+details p{margin:8px 0 0;color:var(--muted);font-size:.95rem}
+footer{margin-top:24px;font-size:.82rem;color:var(--muted)}
+.btn{font:inherit;background:none;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:6px 12px;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Old vs New Tax Regime Calculator <span style="white-space:nowrap">FY 2026-27</span></h1>
+  <p>Assessment Year 2027-28 · For resident individuals · Enter your numbers and see which regime saves you more.</p>
+</header>
+
+<div class="grid">
+  <!-- INPUTS -->
+  <form class="card" id="form" onsubmit="return false" autocomplete="off">
+    <h2>Your income</h2>
+    <div class="row two">
+      <div>
+        <label for="age">Age group</label>
+        <select id="age">
+          <option value="u60">Below 60</option>
+          <option value="60">60 to 79 (senior)</option>
+          <option value="80">80 and above (super senior)</option>
+        </select>
+      </div>
+      <div>
+        <label for="salary">Annual gross salary / pension (₹)</label>
+        <input type="text" id="salary" inputmode="numeric" placeholder="e.g. 1500000" value="1500000">
+      </div>
+    </div>
+    <label class="check"><input type="checkbox" id="salaried" checked> I am a salaried employee or pensioner (standard deduction applies)</label>
+    <div class="row">
+      <div>
+        <label for="other">Other income: interest, rent, etc. (₹ per year)</label>
+        <input type="text" id="other" inputmode="numeric" placeholder="0">
+      </div>
+    </div>
+
+    <h2 style="margin-top:20px">HRA (old regime only)</h2>
+    <div class="row two">
+      <div><label for="basic">Basic salary + DA, yearly (₹)</label><input type="text" id="basic" inputmode="numeric" placeholder="e.g. 600000" value="600000"></div>
+      <div><label for="hra">HRA received, yearly (₹)</label><input type="text" id="hra" inputmode="numeric" placeholder="e.g. 240000" value="240000"></div>
+    </div>
+    <div class="row">
+      <div><label for="rent">Rent paid, yearly (₹)</label><input type="text" id="rent" inputmode="numeric" placeholder="e.g. 240000" value="240000"></div>
+    </div>
+    <label class="check"><input type="checkbox" id="metro"> I live in Delhi, Mumbai, Kolkata or Chennai</label>
+
+    <h2 style="margin-top:20px">Deductions</h2>
+    <div class="row two">
+      <div><label for="c80">80C: PF, PPF, ELSS, LIC… (max 1.5L)</label><input type="text" id="c80" inputmode="numeric" placeholder="0" value="150000"></div>
+      <div><label for="d80s">80D: your health insurance</label><input type="text" id="d80s" inputmode="numeric" placeholder="0" value="25000"></div>
+    </div>
+    <div class="row two">
+      <div><label for="d80p">80D: parents' health insurance</label><input type="text" id="d80p" inputmode="numeric" placeholder="0"></div>
+      <div><label for="nps1b">NPS 80CCD(1B) (max 50k)</label><input type="text" id="nps1b" inputmode="numeric" placeholder="0"></div>
+    </div>
+    <label class="check"><input type="checkbox" id="psenior"> My parents are senior citizens (higher 80D limit)</label>
+    <div class="row two">
+      <div><label for="hl">Home loan interest, self-occupied (max 2L)</label><input type="text" id="hl" inputmode="numeric" placeholder="0"></div>
+      <div><label for="empnps">Employer NPS contribution</label><input type="text" id="empnps" inputmode="numeric" placeholder="0"><div class="hint">Allowed in both regimes, within limits.</div></div>
+    </div>
+    <div class="row">
+      <div><label for="oth">Other old-regime deductions: 80E, 80G, etc. (₹)</label><input type="text" id="oth" inputmode="numeric" placeholder="0"></div>
+    </div>
+  </form>
+
+  <!-- RESULTS -->
+  <section class="sticky" aria-live="polite">
+    <div class="card">
+      <h2>Your result</h2>
+      <div class="verdict" id="verdict"></div>
+      <div class="cols">
+        <div class="reg" id="regNew"><div class="name">New regime</div><div class="amt" id="newTotal">-</div><div class="sub" id="newMonthly"></div></div>
+        <div class="reg" id="regOld"><div class="name">Old regime</div><div class="amt" id="oldTotal">-</div><div class="sub" id="oldMonthly"></div></div>
+      </div>
+      <table>
+        <thead><tr><th></th><th>New</th><th>Old</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <p class="hint" id="breakeven" style="margin-top:12px"></p>
+      <div class="note">This is an estimate for educational use, not tax or legal advice. It assumes a resident individual with income taxed at normal slab rates and does not cover capital gains at special rates, business income, NRIs or other special cases. Please check with a Chartered Accountant or the official income tax portal before filing.</div>
+    </div>
+    <!-- Ad / affiliate slot: add your AdSense or affiliate code here once approved -->
+    <div class="adslot" id="adslot"></div>
+  </section>
+</div>
+
+<section class="card" style="margin-top:16px">
+  <h2>Quick answers</h2>
+  <details open><summary>Is income up to ₹12 lakh really tax free in FY 2026-27?</summary>
+    <p>Under the new regime, yes for resident individuals: taxable income up to ₹12 lakh gets a Section 87A rebate of up to ₹60,000, which cancels the tax. With the ₹75,000 standard deduction, a salaried person can have gross salary up to ₹12.75 lakh and still pay nil tax. Slightly above ₹12 lakh, marginal relief limits your tax to the amount by which your income exceeds ₹12 lakh.</p></details>
+  <details><summary>What are the new regime slabs for FY 2026-27?</summary>
+    <p>Nil up to ₹4 lakh, 5% from ₹4 to 8 lakh, 10% from ₹8 to 12 lakh, 15% from ₹12 to 16 lakh, 20% from ₹16 to 20 lakh, 25% from ₹20 to 24 lakh, and 30% above ₹24 lakh, plus 4% health and education cess. Budget 2026 did not change these.</p></details>
+  <details><summary>When does the old regime win?</summary>
+    <p>When your total deductions and exemptions (HRA, 80C, 80D, NPS, home loan interest and so on) are large enough to offset the old regime's higher slab rates. The calculator above also tells you roughly how much extra deduction the old regime would need to beat the new one.</p></details>
+  <details><summary>Can I switch between regimes?</summary>
+    <p>Salaried employees can generally choose a regime each year. Taxpayers with business income have tighter rules on switching back, so check with a professional if that applies to you.</p></details>
+</section>
+
+<footer>
+  Rates and rules reflect FY 2026-27 (AY 2027-28) as of November 2026. Calculations run entirely in your browser; nothing you type is sent anywhere.
+</footer>
+</div>
+
+<script>
+/*CALC-START*/
+var NEW_SLABS=[[400000,0],[800000,0.05],[1200000,0.10],[1600000,0.15],[2000000,0.20],[2400000,0.25],[Infinity,0.30]];
+function oldSlabs(age){
+  if(age==='80') return [[500000,0],[1000000,0.20],[Infinity,0.30]];
+  if(age==='60') return [[300000,0],[500000,0.05],[1000000,0.20],[Infinity,0.30]];
+  return [[250000,0],[500000,0.05],[1000000,0.20],[Infinity,0.30]];
+}
+function slabTax(inc,slabs){
+  var tax=0,prev=0;
+  for(var i=0;i<slabs.length;i++){
+    var lim=slabs[i][0],r=slabs[i][1];
+    if(inc>prev) tax+=(Math.min(inc,lim)-prev)*r;
+    prev=lim;
+    if(inc<=lim) break;
+  }
+  return tax;
+}
+function taxBefore(inc,regime,age){
+  if(regime==='new'){
+    var b=slabTax(inc,NEW_SLABS);
+    if(inc<=1200000) return 0;              // 87A rebate up to 60,000
+    return Math.min(b,inc-1200000);         // marginal relief just above 12 lakh
+  }
+  var o=slabTax(inc,oldSlabs(age));
+  if(inc<=500000) return Math.max(0,o-12500); // 87A old regime
+  return o;
+}
+function bands(regime){return [[5000000,0.10],[10000000,0.15],[20000000,0.25],[50000000,regime==='old'?0.37:0.25]];}
+function totalBeforeCess(inc,regime,age){
+  var t=taxBefore(inc,regime,age),b=bands(regime),rate=0,thr=0;
+  for(var i=0;i<b.length;i++){ if(inc>b[i][0]){rate=b[i][1];thr=b[i][0];} }
+  if(!rate) return t;
+  var sur=t*rate;
+  var maxTotal=totalBeforeCess(thr,regime,age)+(inc-thr); // marginal relief on surcharge
+  if(t+sur>maxTotal) sur=Math.max(0,maxTotal-t);
+  return t+sur;
+}
+function taxDetail(inc,regime,age){
+  var t=taxBefore(inc,regime,age),tot=totalBeforeCess(inc,regime,age);
+  var cess=tot*0.04,total=Math.round((tot+cess)/10)*10;
+  return {tax:t,surcharge:tot-t,cess:cess,total:total};
+}
+function capNps(emp,basic,pct){return basic>0?Math.min(emp,basic*pct):emp;}
+function calculate(p){
+  var gross=p.salary+p.other;
+  // New regime
+  var stdN=p.salaried?Math.min(75000,p.salary):0;
+  var npsN=capNps(p.empNps,p.basic,0.14);
+  var taxableN=Math.max(0,gross-stdN-npsN);
+  // Old regime
+  var stdO=p.salaried?Math.min(50000,p.salary):0;
+  var hraEx=0;
+  if(p.rent>0&&p.hra>0&&p.basic>0){
+    hraEx=Math.max(0,Math.min(p.hra,p.rent-0.10*p.basic,(p.metro?0.5:0.4)*p.basic));
+  }
+  var npsO=capNps(p.empNps,p.basic,0.10);
+  var d80s=Math.min(p.d80s,p.age==='u60'?25000:50000);
+  var d80p=Math.min(p.d80p,p.psenior?50000:25000);
+  var ded=Math.min(p.c80,150000)+d80s+d80p+Math.min(p.nps1b,50000)+Math.min(p.hl,200000)+p.oth;
+  var taxableO=Math.max(0,gross-stdO-hraEx-npsO-ded);
+  var N=taxDetail(taxableN,'new',p.age),O=taxDetail(taxableO,'old',p.age);
+  N.gross=gross;N.std=stdN;N.hra=0;N.nps=npsN;N.ded=0;N.taxable=taxableN;
+  O.gross=gross;O.std=stdO;O.hra=hraEx;O.nps=npsO;O.ded=ded;O.taxable=taxableO;
+  // extra old-regime deduction needed for old to match new
+  var extra=0;
+  if(O.total>N.total){
+    var lo=0,hi=Math.max(taxableO,1);
+    for(var i=0;i<60;i++){
+      var mid=(lo+hi)/2;
+      if(taxDetail(Math.max(0,taxableO-mid),'old',p.age).total<=N.total) hi=mid; else lo=mid;
+    }
+    extra=hi;
+  }
+  return {n:N,o:O,extra:extra};
+}
+/*CALC-END*/
+
+var ids=['salary','other','basic','hra','rent','c80','d80s','d80p','nps1b','hl','empnps','oth'];
+function el(id){return document.getElementById(id);}
+function val(id){var s=String(el(id).value||'').replace(/[^0-9.]/g,'');var n=parseFloat(s);return isFinite(n)?n:0;}
+function inr(n){return '\u20B9'+Math.round(n).toLocaleString('en-IN');}
+function read(){
+  return {age:el('age').value,salaried:el('salaried').checked,salary:val('salary'),other:val('other'),
+    basic:val('basic'),hra:val('hra'),rent:val('rent'),metro:el('metro').checked,
+    c80:val('c80'),d80s:val('d80s'),d80p:val('d80p'),psenior:el('psenior').checked,
+    nps1b:val('nps1b'),hl:val('hl'),empNps:val('empnps'),oth:val('oth')};
+}
+function render(){
+  var r=calculate(read()),N=r.n,O=r.o;
+  el('newTotal').textContent=inr(N.total);
+  el('oldTotal').textContent=inr(O.total);
+  el('newMonthly').textContent='about '+inr(N.total/12)+' / month';
+  el('oldMonthly').textContent='about '+inr(O.total/12)+' / month';
+  var newWins=N.total<=O.total,diff=Math.abs(N.total-O.total);
+  el('regNew').className='reg'+(newWins?' win':'');
+  el('regOld').className='reg'+(!newWins?' win':'');
+  var v=el('verdict');
+  if(diff===0) v.innerHTML='<span class="big">Both regimes give the same tax.</span>';
+  else v.innerHTML='<span class="big"><strong>'+(newWins?'New':'Old')+' regime</strong> saves you '+inr(diff)+' this year.</span>';
+  var rows=[
+    ['Gross income',N.gross,O.gross],
+    ['Standard deduction',-N.std,-O.std],
+    ['HRA exemption',0,-O.hra],
+    ['Employer NPS',-N.nps,-O.nps],
+    ['Other deductions',0,-O.ded],
+    ['Taxable income',N.taxable,O.taxable],
+    ['Tax after rebate',N.tax,O.tax],
+    ['Surcharge',N.surcharge,O.surcharge],
+    ['Cess (4%)',N.cess,O.cess],
+    ['Total tax',N.total,O.total]
+  ];
+  var h='';
+  for(var i=0;i<rows.length;i++){
+    var cls=rows[i][0]==='Total tax'?' class="total"':'';
+    function f(x){return x<0?'\u2212'+inr(-x):inr(x);}
+    h+='<tr'+cls+'><td>'+rows[i][0]+'</td><td>'+f(rows[i][1])+'</td><td>'+f(rows[i][2])+'</td></tr>';
+  }
+  el('rows').innerHTML=h;
+  var be=el('breakeven');
+  if(!newWins) be.textContent='';
+  else if(r.extra>0) be.textContent='To make the old regime win, you would need roughly '+inr(r.extra)+' more in old-regime deductions or exemptions.';
+  else be.textContent='';
+}
+for(var i=0;i<ids.length;i++) el(ids[i]).addEventListener('input',render);
+['age','salaried','metro','psenior'].forEach(function(id){el(id).addEventListener('change',render);});
+render();
+</script>
+</body>
+</html>
